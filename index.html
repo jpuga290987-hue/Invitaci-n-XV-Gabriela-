@@ -11,7 +11,7 @@
       --azul: #101932;
       --azul2: #26345c;
       --texto: #2b2535;
-      --blanco: rgba(255,255,255,0.86);
+      --blanco: rgba(255,255,255,0.88);
     }
 
     * { box-sizing: border-box; }
@@ -22,9 +22,8 @@
       font-family: "Segoe UI", Arial, sans-serif;
       color: var(--texto);
       background:
-        radial-gradient(circle at top left, #ffe8a3 0, transparent 30%),
-        radial-gradient(circle at bottom right, #a61b2b 0, transparent 28%),
-        linear-gradient(135deg, var(--azul), var(--azul2), #fff1ba);
+        linear-gradient(rgba(8, 12, 30, 0.18), rgba(8, 12, 30, 0.28)),
+        url("fondo-bella-bestia.jpg") center center / cover fixed no-repeat;
       overflow-x: hidden;
     }
 
@@ -41,7 +40,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #fff7cf;
+      background: rgba(255, 247, 207, 0.85);
       box-shadow: 0 0 14px #fff7cf;
       opacity: 0;
       animation: subir 5s infinite ease-in-out;
@@ -74,7 +73,7 @@
       border-radius: 34px;
       background: var(--blanco);
       backdrop-filter: blur(10px);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
       border: 1px solid rgba(255,255,255,0.85);
       animation: aparecer 0.8s ease both;
     }
@@ -183,7 +182,7 @@
       border-radius: 40px;
       background: var(--blanco);
       backdrop-filter: blur(10px);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.36);
       border: 1px solid rgba(255,255,255,0.85);
       animation: aparecer 0.8s ease both;
     }
@@ -416,7 +415,7 @@
         <div class="foto"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=1200&auto=format&fit=crop" alt="Foto 2"></div>
         <div class="foto"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1200&auto=format&fit=crop" alt="Foto 3"></div>
       </div>
-      <p class="nota" style="text-align:center; margin-top:16px;">Puedes reemplazar estas imágenes por fotos de Gabriela Alitzel.</p>
+      
     </section>
 
     <footer>
@@ -447,6 +446,17 @@
       document.getElementById("portada").style.display = "none";
       document.getElementById("invitacion").style.display = "block";
       window.scrollTo({ top: 0, behavior: "smooth" });
+
+      const audio = document.getElementById("musica");
+      const boton = document.getElementById("botonMusica");
+
+      audio.play().then(() => {
+        musicaActiva = true;
+        boton.textContent = "⏸ Pausar música";
+      }).catch(() => {
+        musicaActiva = false;
+        boton.textContent = "🎵 Reproducir pista encantada";
+      });
     }
 
     let musicaActiva = false;
@@ -457,7 +467,7 @@
       const boton = document.getElementById("botonMusica");
 
       if (!source.getAttribute("src")) {
-        alert("Para escuchar música, guarda una pista MP3 legal en la misma carpeta que esta invitación con el nombre musica.mp3.");
+        alert("Para escuchar música, sube un archivo MP3 llamado musica.mp3 junto al index.html en GitHub.");
         return;
       }
 
