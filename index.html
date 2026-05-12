@@ -360,11 +360,42 @@
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
     }
 
+
+    /* Recuadros de madrinas y padrinos */
+    .honor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 24px 0;
+    }
+
+    .honor-card {
+      text-align: center;
+      padding: 26px 22px;
+      border-radius: 32px;
+      background: var(--blanco);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(212, 175, 55, 0.65);
+    }
+
+    .honor-card h3 {
+      margin-bottom: 12px;
+      font-size: 28px;
+    }
+
+    .honor-card p {
+      margin: 8px 0;
+      color: #fff8dc;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
     @media (max-width: 750px) {
       .pantalla { padding: 16px; }
       h1 { font-size: 46px; }
       .contador { grid-template-columns: repeat(2, 1fr); }
-      .grid, .acciones, .fotos { grid-template-columns: 1fr; }
+      .grid, .acciones, .fotos, .honor-grid { grid-template-columns: 1fr; }
       .barra { text-align: center; }
       .boton, button { width: 100%; }
     }
@@ -397,8 +428,21 @@
       <h2 id="nombreHero">Gabriela Alitzel</h2>
       <div class="subtitulo">Una noche encantada</div>
       <p class="texto" id="textoPadres">Con gran alegría, mis papás Samuel Cituk Ucan y Gabriela S. Rosado Pool me acompañan a invitarte a celebrar mis XV años.</p>
-      <p class="texto" id="textoMadrinas" style="margin-top:10px;">Madrinas: Blanca Yazmin Rosado Pool y Sariely Ameyalli Hernández Rosado.</p>
-      <p class="texto" id="textoPadrinosBrindis" style="margin-top:10px;">Padrinos de Brindis: William G. Rosado Pool, Angélica M. Chimal Baak y Miztli Cituk Ucan.</p>
+    </section>
+
+    <section class="honor-grid">
+      <div class="honor-card">
+        <h3>Madrinas</h3>
+        <p>Blanca Yazmin Rosado Pool</p>
+        <p>Sariely Ameyalli Hernández Rosado</p>
+      </div>
+
+      <div class="honor-card">
+        <h3>Padrinos de Brindis</h3>
+        <p>William G. Rosado Pool</p>
+        <p>Angélica M. Chimal Baak</p>
+        <p>Miztli Cituk Ucan</p>
+      </div>
     </section>
 
     <section class="contador">
